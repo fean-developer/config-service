@@ -1,0 +1,54 @@
+server:
+  port: 3000
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 9091
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+#--- SPRING BOOT CONFIGURSTION
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql:
+    generate-ddl: true
+    show-sql: true
+
+# ----- KAFKA CONNECT
+
+kafka:
+  producer:
+    bootstrap-servers: ${KAFKA_URL} #localhost:9092
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  topic: "deployers"
+
+# ----- LOG4J LOGS
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: TRACE
+
+bad_request:
+  code: 400
+  message: "Error ao executar a solicitacao!"
