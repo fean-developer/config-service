@@ -31,16 +31,6 @@ spring:
     generate-ddl: true
     show-sql: true
 
-# ----- KAFKA CONNECT
-
-kafka:
-  producer:
-    bootstrap-servers: ${KAFKA_URL} #localhost:9092
-    key-serializer: org.apache.kafka.common.serialization.StringSerializer
-    value-serializer: org.apache.kafka.common.serialization.StringSerializer
-
-  topic: "deployers"
-
 # ----- LOG4J LOGS
 
 logging:
@@ -48,7 +38,3 @@ logging:
     org:
       hibernate:
         type: TRACE
-
-bad_request:
-  code: 400
-  message: "Error ao executar a solicitacao!"
