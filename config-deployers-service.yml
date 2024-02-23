@@ -17,9 +17,9 @@ eureka:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
+    url: jdbc:mysql://mysql-headless:3306/deployers?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: wlg48cd8
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 5
