@@ -6,7 +6,7 @@ spring:
     name: products-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/fellauers_sales?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/fellauers_sales?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
     username: ${DATABASE_USER}
     password: ${DATABASE_PASSWORD}
     hikari:
