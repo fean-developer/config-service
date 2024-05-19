@@ -17,5 +17,5 @@ eureka:
 zuul:
   routes:
     products:
-      path: /products
+      path: /products/**
       serviceId: products-service
