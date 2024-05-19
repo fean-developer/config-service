@@ -18,4 +18,5 @@ zuul:
   routes:
     products:
       path: /products/**
+      url: http://localhost:9093
       serviceId: products-service
