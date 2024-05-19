@@ -17,6 +17,5 @@ eureka:
 zuul:
   routes:
     products:
-      path: /products/**
-      url: http://localhost:9093
+      path: /**
       serviceId: products-service
