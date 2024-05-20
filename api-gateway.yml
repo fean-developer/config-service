@@ -21,3 +21,10 @@ zuul:
       url: http://localhost:9093
       stripPrefix: true
       serviceId: products-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
+        exclude: env
