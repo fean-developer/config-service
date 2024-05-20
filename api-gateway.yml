@@ -26,5 +26,5 @@ management:
   endpoints:
     web:
       exposure:
-        include: '*'
+        include: 'routes'
         exclude: env
