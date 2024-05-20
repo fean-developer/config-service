@@ -19,7 +19,7 @@ zuul:
     products:
       path: /products/**
       url: http://localhost:9093
-      stripPrefix: true
+      stripPrefix: false
       serviceId: products-service
 
 management:
