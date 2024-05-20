@@ -29,4 +29,4 @@ management:
         include: '*'
         exclude: env
     routes:
-      enable: true
+      enabled: true
