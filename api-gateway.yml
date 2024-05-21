@@ -18,9 +18,10 @@ zuul:
   routes:
     products:
       path: /products/**
-      url: http://localhost:9093
-      stripPrefix: false
       serviceId: products-service
+ribbon:
+  eureka:
+    enabled: false
 
 management:
   endpoints:
