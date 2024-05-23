@@ -3,6 +3,17 @@ spring:
     name: api-gateway
 server:
   port: 5555
+cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: products-service
+          uri: lb://PRODUCTS-SERVICE
+          predicates:
+            - Path=/products/**
 
 eureka:
   instance:
@@ -14,11 +25,6 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
 
-zuul:
-  routes:
-    products-service:
-      path: /products/**
-      serviceId: PRODUCTS-SERVICE
 ribbon:
   eureka:
     enabled: false
