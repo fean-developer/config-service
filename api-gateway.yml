@@ -5,13 +5,16 @@ spring:
     name: api-gateway
 server:
   port: 5555
-cloud:
+
+spring:
+  cloud:
     gateway:
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
+          
+       routes:
         - id: products-service
           uri: lb://products-service
           predicates:
