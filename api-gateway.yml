@@ -30,3 +30,17 @@ spring:
             uri: lb://products-service
             predicates:
               - Path=/products/**
+
+      
+ribbon:
+  eureka:
+    enabled: false
+
+management:
+  endpoint:
+    gateway:
+      enabled: true # default value
+  endpoints:
+    web:
+      exposure:
+        include: '*'
