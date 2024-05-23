@@ -8,16 +8,11 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-
-        routes:
-          - id: products
-            uri: http://localhost:9093
-            predicates:
-              - Path=/products/**
+      routes:
+        - id: products
+          uri: lb://products-service
+          predicates:
+            - Path=/products/**
 
 eureka:
   instance:
