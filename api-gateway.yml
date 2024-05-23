@@ -1,11 +1,23 @@
+server:
+  port: 8043
+
 spring:
   main:
     web-application-type: reactive
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
 
-server:
-  port: 8043
+        routes:
+          - id: products
+            uri: lb://products-service
+            predicates:
+              - Path=/products/**
 
 eureka:
   instance:
@@ -17,21 +29,8 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
 
-spring:
-  cloud:
-      gateway:
-        discovery:
-          locator:
-            enabled: true
-            lower-case-service-id: true
-            
-         routes:
-          - id: products
-            uri: lb://products-service
-            predicates:
-              - Path=/products/**
 
-      
+
 ribbon:
   eureka:
     enabled: false
