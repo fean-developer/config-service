@@ -13,7 +13,7 @@ cloud:
           lower-case-service-id: true
       routes:
         - id: products-service
-          uri: lb://PRODUCTS-SERVICE
+          uri: lb://products-service
           predicates:
             - Path=/products/**
 
