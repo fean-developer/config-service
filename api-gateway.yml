@@ -11,8 +11,10 @@ spring:
       routes:
         - id: products
           uri: lb://products-service
-          predicates:
-            - Path=/products/**
+           predicates:
+            - Path=/api/v1/products/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   instance:
