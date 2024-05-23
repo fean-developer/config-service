@@ -32,10 +32,10 @@ ribbon:
     enabled: false
 
 management:
+  endpoint:
+    gateway:
+      enabled: true # default value
   endpoints:
     web:
       exposure:
-        include: '*'
-        exclude: env
-    routes:
-      enabled: true
+        include: gateway
