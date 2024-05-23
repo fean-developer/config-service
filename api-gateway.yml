@@ -1,4 +1,6 @@
 spring:
+  main:
+    application-type: reactive
   application:
     name: api-gateway
 server:
