@@ -15,7 +15,7 @@ spring:
           lower-case-service-id: true
           
        routes:
-        - id: products-service
+        - id: products
           uri: lb://products-service
           predicates:
             - Path=/products/**
