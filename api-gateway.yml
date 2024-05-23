@@ -3,10 +3,6 @@ spring:
     web-application-type: reactive
   application:
     name: api-gateway
-server:
-  port: 8043
-
-spring:
   cloud:
     gateway:
       discovery:
@@ -19,6 +15,9 @@ spring:
           uri: lb://products-service
           predicates:
             - Path=/products/**
+
+server:
+  port: 8043
 
 eureka:
   instance:
