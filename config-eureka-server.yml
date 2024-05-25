@@ -11,3 +11,5 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
+    expected-client-renewal-interval-second: 10
+    eviction-interval-timer-in-ms: 3000
