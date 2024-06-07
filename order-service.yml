@@ -12,9 +12,9 @@ Spring:
       auto-offset-reset: latest
 
     data:
-        mongodb:
-            database: admin
-            uri: ${MONGO_DB_URI:mongodb://admin:wlg48cd8@localhost:27017}
+      mongodb:
+        database: admin
+        uri: ${MONGO_DB_URI:mongodb://admin:wlg48cd8@localhost:27017}
 
 logging:
   level:
