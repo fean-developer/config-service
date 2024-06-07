@@ -16,8 +16,8 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      username: ${{ secrets.MONGO_DB_USER }}
-      password: $MONGO_DB_PASSWORD
+      username: admin
+      password: wlg48cd8
       authentication-database: admin
       auto-index-creation: true
       write-concern: NORMAL
