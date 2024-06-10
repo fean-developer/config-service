@@ -5,6 +5,8 @@ spring:
 
   kafka:
     bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    producer:
+      fetch-max-wait: 30000
     topic:
       start-saga: start-saga
       notify-ending: notify-ending
