@@ -7,6 +7,9 @@ spring:
     bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
     topic:
       orchestrator: orchestrator
+      inventory-registration: inventory-registration # producer
+      inventory-notify-ending:  inventory-notify-ending # consumer
+      inventory-validation-fail: inventory-validation-fail # consumer
       product-validation-success: product-validation-success
       product-validation-fail: product-validation-fail
     consumer:
