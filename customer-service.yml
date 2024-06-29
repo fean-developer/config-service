@@ -1,0 +1,41 @@
+server:
+  port: 8081
+
+spring:
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic:
+      validate-customer-fail: validate-customer-fail
+      validate-customer-success: validate-customer-success
+      orchestrator : orchestrator
+    consumer:
+      group-id: customer-group
+      auto-offset-reset: latest
+
+  data:
+    mongodb:
+      host: ${MONGO_DB_HOST:localhost}
+      port: 27017
+      username: ${MONGO_DB_USERNAME:admin}
+      password: ${MONGO_DB_PASSWORD:wlg48cd8}
+      authentication-database: admin
+      auto-index-creation: true
+      write-concern: NORMAL
+
+
+eureka:
+  instance:
+    hostname: ${EUREKA_HOSTNAME:localhost}
+    port: 9091
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: OFF
