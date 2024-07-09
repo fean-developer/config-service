@@ -16,18 +16,6 @@ spring:
           filters:
             - StripPrefix=2
 
-eureka:
-  instance:
-    hostname: localhost
-    port: 9091
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
-
-
-
 ribbon:
   eureka:
     enabled: false

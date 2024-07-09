@@ -24,16 +24,6 @@ spring:
       write-concern: NORMAL
 
 
-eureka:
-  instance:
-    hostname: ${EUREKA_HOSTNAME:localhost}
-    port: 9091
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
-
 logging:
   level:
     org:
