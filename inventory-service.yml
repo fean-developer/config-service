@@ -2,35 +2,36 @@ server:
   port: 8083
 
 spring:
-    kafka:
-        bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
-        topic:
-            orchestrator: orchestrator
-            inventory-success: inventory-success
-            inventory-fail: inventory-fail
-            consumer:
-                group-id: payment-group
-                auto-offset-reset: latest
 
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://${INVENTORY_DB_HOST:localhost}:${INVENTORY_DB_PORT:5432}/${INVENTORY_DB_NAME:inventory-db}
-        username: ${INVENTORY_DB_USERNAME:admin}
-        password: ${INVENTORY_DB_PASSWORD:wlg48cd8}
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic:
+      orchestrator: orchestrator
+      inventory-success: inventory-success
+      inventory-fail: inventory-fail
+      consumer:
+        group-id: payment-group
+        auto-offset-reset: latest
 
-    jpa:
-        hibernate:
-        ddl-auto: create-drop
-    properties:
-        hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${INVENTORY_DB_HOST:localhost}:${INVENTORY_DB_PORT:5432}/${INVENTORY_DB_NAME:inventory-db}
+    username: ${INVENTORY_DB_USERNAME:admin}
+    password: ${INVENTORY_DB_PASSWORD:wlg48cd8}
+
+  jpa:
+    hibernate:
+    ddl-auto: create-drop
+  properties:
+    hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
 
 eureka:
-    instance:
-        hostname: ${EUREKA_HOSTNAME:localhost}
-        port: 9091
-    client:
-        registerWithEureka: true
-        fetchRegistry: true
-        serviceUrl:
-        defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
+  instance:
+    hostname: ${EUREKA_HOSTNAME:localhost}
+    port: 9091
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+    defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
