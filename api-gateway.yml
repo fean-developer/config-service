@@ -66,6 +66,8 @@ ribbon:
     enabled: false
 
 management:
+  security:
+    enabled: false
   endpoint:
     gateway:
       enabled: true # default value
