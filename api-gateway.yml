@@ -8,13 +8,60 @@ spring:
     name: api-gateway
   cloud:
     gateway:
+      default-filters:
+        - name: JwtAuthenticationFilter
       routes:
-        - id: products
-          uri: lb://products-service
+
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - StripPrefix=2
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/v1/users/**
+          filters:
+            - StripPrefix=2
+
+        - id: product-service
+          uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/api/v1/products/**
           filters:
             - StripPrefix=2
+
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/orders/**
+          filters:
+            - StripPrefix=2
+
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/v1/customers/**
+          filters:
+            - StripPrefix=2
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Authorization
+              - Content-Type
+              - Accept
 
 ribbon:
   eureka:

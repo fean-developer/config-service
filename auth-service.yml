@@ -1,0 +1,17 @@
+server:
+  port: 8084
+
+spring:
+  application:
+      name: auth-service
+  cloud:
+    openfeign:
+      client:
+        api:
+          uri: ${USER_CLIENT:http://localhost:8086}
+          name: user-service
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: basic
