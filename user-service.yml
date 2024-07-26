@@ -18,3 +18,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     
+app:
+  user:
+    jwtSecret: ${JWT_SECRET:secret}
+    jwtExpirationMs: ${JWT_EXPIRATION_MS:86400000}
