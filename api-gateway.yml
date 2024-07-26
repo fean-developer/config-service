@@ -70,10 +70,12 @@ ribbon:
 management:
   security:
     enabled: false
-  endpoint:
-    gateway:
-      enabled: true # default value
+
   endpoints:
     web:
       exposure:
         include: '*'
+app:
+  auth:
+    jwtSecret: ${JWT_SECRET:secret}
+    jwtExpirationMs: ${JWT_EXPIRATION_MS:86400000}
