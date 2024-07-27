@@ -8,8 +8,7 @@ spring:
     name: api-gateway
   cloud:
     gateway:
-      default-filters:
-        - name: JwtAuthenticationGatewayFilterFactory
+
       routes:
 
         - id: auth-service
