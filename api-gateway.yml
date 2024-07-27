@@ -10,6 +10,12 @@ spring:
     gateway:
 
       routes:
+        - id: discovery-service
+          uri: http://localhost:9091
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - setPath=/
 
         - id: auth-service
           uri: lb://AUTH-SERVICE
@@ -38,13 +44,13 @@ spring:
             - Path=/api/v1/orders/**
           filters:
             - StripPrefix=2
-
-        - id: customer-service
-          uri: lb://CUSTOMER-SERVICE
-          predicates:
-            - Path=/api/v1/customers/**
-          filters:
-            - StripPrefix=2
+#
+#        - id: customer-service
+#          uri: lb://CUSTOMER-SERVICE
+#          predicates:
+#            - Path=/api/v1/customers/**
+#          filters:
+#            - StripPrefix=2
 
       globalcors:
         corsConfigurations:
