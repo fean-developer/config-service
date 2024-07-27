@@ -9,7 +9,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - name: JwtAuthenticationFilter
+        - name: JwtAuthenticationGatewayFilterFactory
       routes:
 
         - id: auth-service
