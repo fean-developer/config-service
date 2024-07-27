@@ -63,9 +63,6 @@ spring:
               - Content-Type
               - Accept
 
-ribbon:
-  eureka:
-    enabled: false
 
 management:
   security:
