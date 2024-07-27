@@ -13,9 +13,8 @@ spring:
         - id: discovery-service
           uri: http://localhost:9091
           predicates:
-            - Path=/eureka/web
-          filters:
-            - setPath=/
+            - Path=/
+
 
         - id: auth-service
           uri: lb://AUTH-SERVICE
