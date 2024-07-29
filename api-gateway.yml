@@ -38,7 +38,7 @@ spring:
             - Path=/api/v1/orders/**
           filters:
             - StripPrefix=2
-            - name: JwtAuthenticationGatewayFilterFactory
+            - name: JwtAuthentication
 #
 #        - id: customer-service
 #          uri: lb://CUSTOMER-SERVICE
