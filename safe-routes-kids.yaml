@@ -1,5 +1,6 @@
 server:
   port: 8089
+  address: 172.28.235.185
 
 spring:
 
