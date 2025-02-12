@@ -1,0 +1,22 @@
+server:
+  port: 8088
+
+spring:
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BROKER:localhost:9092}
+    topic:
+      poc-github: poc-github
+    consumer:
+      group-id: github-group
+      auto-offset-reset: latest
+
+  data:
+    mongodb:
+      host: ${POC_DB_HOST:localhost}
+      port: 27017
+      username: ${POC_DB_USERNAME:admin}
+      password: ${POC_DB_PASSWORD:wlg48cd8}
+      authentication-database: admin
+      auto-index-creation: true
+      write-concern: NORMAL
